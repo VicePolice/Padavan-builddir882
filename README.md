@@ -1,16 +1,25 @@
-# Padavan-build说明
+# Padavan-build for DIR882 A1 DIR-882
 
-步骤
+        echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #MENTOHUST
+        echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #SCUTCLIENT
+        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #SS plus+
+        echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=n" >> .config # simple-obfs
+        echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config #adbyby plus+
+        echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
+        echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config #
+        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #xray  ~4.5M
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray
+        echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=y" >> .config #ddnsto  ~0.5M
+        echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #  ~3m
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config #smartdns
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config #smartdns
+        echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y" >> .config #wireguard ~10k
+        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_LANG_RU=y" >> .config
+        ##QOS and OverClock##
+        echo "CONFIG_FIRMWARE_INCLUDE_SQM=y" >> .config #SQM QOS#CPU
+        echo "CONFIG_FIRMWARE_INCLUDE_OC=n" >> .config #CPU overClock
+        echo 'CONFIG_FIRMWARE_MT7621_OC="0x362"' >> .config #overClock：1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2
 
-0.点击右上角的Fork按钮，进入自己fork后的仓库。
-
-1.修改/workflows/build-padavan.yml里的插件与机型。修改TNAME: K2P 中的K2P为需要编译的型号，注意名称要与configs/templates/目录下的名字
-相同。
-
-  修改后commit changes保存。
-
-2.点击页面上部的Actions按钮，点击I understand my workflows，go ahead and enable them绿色按钮启用action。
-
-3.点击右上角的 Star 星星按钮即可开始自动编译（自己点击才会编译）。修改配置后若需再次编译，先点击Star取消Star后，再点击Star即可重新编译。
-
-编译完成后在Actions页面底部下载固件。
